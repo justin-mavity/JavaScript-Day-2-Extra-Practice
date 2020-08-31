@@ -22,23 +22,26 @@ console.log( '' );
 //  */
 
 function remove( arr, item ) {
-    let index = arr.indexOf( item );
-    if ( index > -1 ) {
-        arr.splice( index, 1 );
-    }
-    return arr;
+    arr.forEach( function ( index ) {
+        if ( arr.includes(item) ) {
+            index = arr.indexOf( item );
+            arr.splice( index,1 );
+        }
+    } );
+    console.log( arr );
 }
 
-console.log( remove( toppings, "Eggs" ) );
+remove( toppings, 'Eggs' );
 console.log( '' );
 /*
 TASK 3 🚀
 // Sort the topping alphabetically and return them in a new array
 */
 
-const newToppings = [ ...toppings ].sort();
-console.log( newToppings );
+const newList = toppings.sort();
 
+
+console.log( newList );
 
 const vacations = [
     { city: 'Toronto', country: 'Canada', region: 'North America', temperature: 86, beach: true, sea: false, wifi: 'strong', hiking: false, overall_rating: 6, },
@@ -85,18 +88,6 @@ console.log( developerOptions );
 TASK 6 🚀
 // write a function that allows a user to sort their vacations by hiking opportunities, beach access or a mix of both and return their options
 */
-function mySort( arr, val ) {
-    if ( val === 'beach' || val === ' hiking' ) {
-        if ( (arr.beach =  true) || ( arr.hiking = true)) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
-    return arr;
-}
-
-console.log( mySort(vacations, 'beach' ) );
 
 
 /*
@@ -119,13 +110,3 @@ Find the airport codes for each of the cities in the vacation array and write a 
 hint - your function should include array, index and code as parameters
 you will need to invoke the function each time you wish to add a new code
 */
-const newArr = [];
-function addCode( arr, index, code ) {
-    arr.airportCode = code;
-    if ( arr.includes( index ) ) {
-        arr[ i ].push( code );
-        newArr.push( [...arr, airportCode] );
-    }
-    console.log( newArr );
-}
-addCode( vacations, 'Toronto', 'YYZ' ) ;
